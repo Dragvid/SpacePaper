@@ -1,0 +1,14 @@
+{
+	"highscore": 7500.0,
+	"keybinds": {
+		"game_dir_down": "S",
+		"game_dir_left": "A",
+		"game_dir_right": "D",
+		"game_dir_up": "W",
+		"game_weapon_1": "T",
+		"game_weapon_2": "Y",
+		"game_weapon_3": "U"
+	},
+	"volume_ost": 1.0,
+	"volume_sfx": 0.7
+}

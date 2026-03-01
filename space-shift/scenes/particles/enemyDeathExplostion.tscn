@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://v26rjb5quneg"]
+
+[ext_resource type="Texture2D" uid="uid://bbniwjsfovnxa" path="res://assets/effects/enemy death explosion.jpg" id="1_d2nkh"]
+[ext_resource type="Script" uid="uid://bc245fs7ark3i" path="res://scenes/particles/enemy_death_explostion.gd" id="1_iptfw"]
+
+[sub_resource type="Animation" id="Animation_yadq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(725.442, 166.324, 145.034, 128.618)]
+}
+
+[sub_resource type="Animation" id="Animation_iptfw"]
+resource_name = "explosion"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333, 0.566667, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(725.442, 166.324, 145.034, 128.618), Rect2(681.273, 467.273, 269.091, 316.364), Rect2(65.506, 66.1256, 650.768, 664.753), Rect2(105.988, 805.603, 538.971, 527.307), Rect2(698.683, 853.795, 334.829, 300.096), Rect2(133.037, 1486.04, 291.4, 242.368)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg2mx"]
+_data = {
+&"RESET": SubResource("Animation_yadq8"),
+&"explosion": SubResource("Animation_iptfw")
+}
+
+[node name="EnemyDeathExplostion" type="Node2D" unique_id=1781540835]
+script = ExtResource("1_iptfw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1618510000]
+z_index = -1
+texture = ExtResource("1_d2nkh")
+region_enabled = true
+region_rect = Rect2(725.442, 166.324, 145.034, 128.618)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=235832324]
+libraries/ = SubResource("AnimationLibrary_kg2mx")
+autoplay = &"explosion"

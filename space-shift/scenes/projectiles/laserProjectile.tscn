@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dxlywdx1w1d6f"]
+
+[ext_resource type="Script" uid="uid://ddghowkmr3did" path="res://scripts/projectiles/laser_projectile.gd" id="1_3qenj"]
+[ext_resource type="Texture2D" uid="uid://cv2mhlje6eigc" path="res://assets/projectile-cut.jpg" id="2_3qenj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qenj"]
+size = Vector2(72.4999, 55)
+
+[node name="LaserProjectile" type="Area2D" unique_id=1152796035]
+script = ExtResource("1_3qenj")
+speedX = 500.0
+speedY = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1890466132]
+rotation = -1.5708
+scale = Vector2(0.109593, 0.109593)
+texture = ExtResource("2_3qenj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1533768989]
+position = Vector2(19.2501, 0.00120805)
+rotation = 4.6021e-05
+shape = SubResource("RectangleShape2D_3qenj")
+
+[node name="Timer" type="Timer" parent="." unique_id=354392084]
+wait_time = 10.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

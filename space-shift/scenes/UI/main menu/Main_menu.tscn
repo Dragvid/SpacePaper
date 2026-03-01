@@ -1,0 +1,366 @@
+[gd_scene format=3 uid="uid://bibjneahjlvvp"]
+
+[ext_resource type="Script" uid="uid://b8fwuyyas7twl" path="res://scenes/UI/main menu/script/main_menu_manager.gd" id="1_8g6a4"]
+[ext_resource type="Texture2D" uid="uid://cjg7c4cp1uc0h" path="res://assets/paper_texture.jpg" id="2_qclij"]
+[ext_resource type="Texture2D" uid="uid://bca38mb6cqj5x" path="res://assets/logo.jpeg" id="3_dn2n1"]
+[ext_resource type="FontFile" uid="uid://d1qnsxueyq2ey" path="res://assets/fonts/GochiHand-Regular.ttf" id="3_u4pvv"]
+[ext_resource type="Script" uid="uid://dhy3aem4lhmgg" path="res://scenes/UI/keybind_update.gd" id="4_k1ldt"]
+[ext_resource type="PackedScene" uid="uid://le4tefuftg36" path="res://scenes/UI/keybindUppdate/scenes/action_item.tscn" id="5_dn2n1"]
+[ext_resource type="Script" uid="uid://lacro1wbhpak" path="res://scenes/UI/main menu/game_options.gd" id="5_e70y8"]
+[ext_resource type="Script" uid="uid://cud7itw1i5hjc" path="res://scenes/UI/volumeUpdate/sound_sliders.gd" id="6_errmk"]
+
+[node name="MainMenu_manager" type="Control" unique_id=633207082]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8g6a4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1740992749]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -985.0
+offset_top = -739.0
+offset_right = 985.0
+offset_bottom = 739.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qclij")
+
+[node name="logo" type="TextureRect" parent="." unique_id=544752073]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1222.0
+offset_top = 556.0
+offset_right = -117.38855
+offset_bottom = 3026.3481
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = ExtResource("3_dn2n1")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="main_options" type="HBoxContainer" parent="." unique_id=1869147200]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -645.0
+offset_top = -209.0
+offset_right = 645.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="play_Button" type="Button" parent="main_options" unique_id=1365912077]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="options_button" type="Button" parent="main_options" unique_id=296091743]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="rules_button" type="Button" parent="main_options" unique_id=123888769]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 30
+text = "Game rules
+"
+
+[node name="quit_button" type="Button" parent="main_options" unique_id=1563185875]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="game_rules_display" type="Control" parent="." unique_id=1999720518]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="game_rules_display" unique_id=1964849588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="game_rules_display" unique_id=114934158]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -304.0
+offset_right = 500.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="game_rules_display/ScrollContainer" unique_id=1917756303]
+layout_mode = 2
+alignment = 1
+
+[node name="rules_label" type="Label" parent="game_rules_display/ScrollContainer/VBoxContainer" unique_id=1937883]
+custom_minimum_size = Vector2(1000, 1.01)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 32
+text = "The objective of the game is to survive as long as possible and score the most points by defeating obstacles.
+
+You have three different weapons that fire automatically: an auto targeting laser, a missile and a force field. You can switch between them by clicking the associated button, you can set them in the options.
+
+The laser goes automatically to the closest enemy. The missile only travels forward but hits harder. The force field is always up once selected, and will destroy smaller obstacles on hit, but you can’t run into bigger ones with them.
+
+There are two types of enemies, big and small. The bigger ones have more health and move slower than the smaller ones.
+
+Sometimes the enemies will drop cups, run into those up to increase your score.
+
+If you hit an enemy you’ll lose life. It will go back up over time if you don’t get hurt again.
+
+You have three different weapons that fire automatically: an auto targeting laser, a missile and a force field. You can switch between them by clicking the associated button, you can set them in the options.
+
+The laser goes automatically to the closest enemy. The missile only travels forward but hits harder. The force field is always up once selected, and will destroy smaller obstacles on hit, but you can’t run into bigger ones with them.
+
+There are two types of enemies, big and small. The bigger ones have more health and move slower than the smaller ones.
+"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="game_rules_display" unique_id=654461166]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 292.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="options" type="Control" parent="." unique_id=469197522]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_e70y8")
+
+[node name="Panel" type="Panel" parent="options" unique_id=1249128731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options" unique_id=497341536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pause_main" type="VBoxContainer" parent="options/HBoxContainer" unique_id=2082010814]
+custom_minimum_size = Vector2(540, 1080)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="volumeBtn" type="Button" parent="options/HBoxContainer/pause_main" unique_id=1370899715]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 20
+text = "Volume"
+
+[node name="changeKeybindsBtn" type="Button" parent="options/HBoxContainer/pause_main" unique_id=1150170754]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 20
+text = "Update  keybinds"
+
+[node name="optionsTab" type="Control" parent="options/HBoxContainer" unique_id=457070013]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="soundSliders" type="VBoxContainer" parent="options/HBoxContainer/optionsTab" unique_id=976419915]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -80.5
+offset_right = 185.5
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_errmk")
+
+[node name="sfx" type="Control" parent="options/HBoxContainer/optionsTab/soundSliders" unique_id=911109683]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="sfxHSlider" type="HSlider" parent="options/HBoxContainer/optionsTab/soundSliders/sfx" unique_id=858421709]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -288.5
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="sfx_opt_label" type="Label" parent="options/HBoxContainer/optionsTab/soundSliders/sfx" unique_id=962180155]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 52.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Effects"
+
+[node name="ost" type="Control" parent="options/HBoxContainer/optionsTab/soundSliders" unique_id=1368797858]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ostHSlider" type="HSlider" parent="options/HBoxContainer/optionsTab/soundSliders/ost" unique_id=567770641]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -288.5
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="sfx_opt_label" type="Label" parent="options/HBoxContainer/optionsTab/soundSliders/ost" unique_id=270722070]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 52.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Music"
+
+[node name="keybindUpdate" type="Control" parent="options/HBoxContainer/optionsTab" unique_id=1061564702]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_k1ldt")
+action_line = ExtResource("5_dn2n1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="options/HBoxContainer/optionsTab/keybindUpdate" unique_id=491563081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 106.0
+offset_right = -53.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="actionList" type="VBoxContainer" parent="options/HBoxContainer/optionsTab/keybindUpdate/ScrollContainer" unique_id=707607310]
+custom_minimum_size = Vector2(1300, 910)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="backButton" type="Button" parent="options" unique_id=245725011]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 292.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Label" type="Label" parent="." unique_id=115603094]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -104.0
+offset_right = -76.0
+offset_bottom = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.24405202, 0.24405205, 0.24405202, 1)
+theme_override_fonts/font = ExtResource("3_u4pvv")
+theme_override_font_sizes/font_size = 20
+text = "David Soares - game developer
+André Loureiro/Kami - Music"
+
+[connection signal="button_up" from="main_options/play_Button" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="main_options/options_button" to="." method="_on_options_button_button_up"]
+[connection signal="button_up" from="main_options/rules_button" to="." method="_on_rules_button_button_up"]
+[connection signal="button_up" from="main_options/quit_button" to="." method="_on_quit_button_button_up"]
+[connection signal="button_down" from="game_rules_display/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="options/HBoxContainer/pause_main/volumeBtn" to="options" method="_on_volume_btn_button_up"]
+[connection signal="button_up" from="options/HBoxContainer/pause_main/changeKeybindsBtn" to="options" method="_on_change_keybinds_btn_button_up"]
+[connection signal="value_changed" from="options/HBoxContainer/optionsTab/soundSliders/sfx/sfxHSlider" to="options/HBoxContainer/optionsTab/soundSliders" method="_on_sfx_h_slider_value_changed"]
+[connection signal="value_changed" from="options/HBoxContainer/optionsTab/soundSliders/ost/ostHSlider" to="options/HBoxContainer/optionsTab/soundSliders" method="_on_ost_h_slider_value_changed"]
+[connection signal="button_up" from="options/backButton" to="." method="_on_back_button_button_up"]

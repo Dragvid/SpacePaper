@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://le4tefuftg36"]
+
+[ext_resource type="Script" uid="uid://brhbjt1o7r4wp" path="res://scenes/UI/action_item.gd" id="1_hjpoj"]
+
+[node name="actionItem" type="Control" unique_id=1674008070]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 202.0
+offset_bottom = 50.0
+script = ExtResource("1_hjpoj")
+
+[node name="actionNameLabel" type="Label" parent="." unique_id=900177687]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.0
+offset_right = 92.0
+offset_bottom = 21.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Action"
+
+[node name="actionKeyButton" type="Button" parent="." unique_id=17162414]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "..."
+
+[connection signal="button_up" from="actionKeyButton" to="." method="_on_action_key_button_button_up"]

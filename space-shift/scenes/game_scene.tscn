@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://wh6jb14vdtrt"]
+
+[ext_resource type="PackedScene" uid="uid://btsg1etftxdq0" path="res://scenes/playerShip.tscn" id="1_ycayy"]
+[ext_resource type="PackedScene" uid="uid://cx6gubahjrex5" path="res://scenes/Enemies/follower_enemy.tscn" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://hfrh2rv7v5c5" path="res://scenes/obstacle_spawner.tscn" id="4_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://cj2ihku8bay7f" path="res://scenes/Enemies/big_enemy.tscn" id="5_y3j0m"]
+[ext_resource type="PackedScene" uid="uid://ce31tr5xo1xm1" path="res://scenes/UI/UserInterface.tscn" id="6_rurhu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y3j0m"]
+load_path = "res://.godot/imported/background.jpeg-4ace736b3b1fbe75ada471cd9290ae90.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rurhu"]
+size = Vector2(1920, 24)
+
+[node name="playArea" type="Node2D" unique_id=786702884]
+
+[node name="PaperTexture" type="Sprite2D" parent="." unique_id=962509547]
+modulate = Color(0.935901, 0.932429, 0.94059, 1)
+z_index = -2
+position = Vector2(879.00006, 580.00006)
+rotation = 1.5707964
+scale = Vector2(1.2, 1.2)
+texture = SubResource("CompressedTexture2D_y3j0m")
+
+[node name="player" parent="." unique_id=739437572 instance=ExtResource("1_ycayy")]
+position = Vector2(610, 345)
+
+[node name="followerEnemy" parent="." unique_id=1280026406 instance=ExtResource("3_ycayy")]
+position = Vector2(156, 184)
+
+[node name="followerEnemy2" parent="." unique_id=999476629 instance=ExtResource("3_ycayy")]
+position = Vector2(485, 97)
+
+[node name="obstacleSpawner" parent="." unique_id=162455219 instance=ExtResource("4_bw6k5")]
+
+[node name="obstacleSpawner2" parent="." unique_id=2030925072 instance=ExtResource("4_bw6k5")]
+position = Vector2(1924, 1074)
+
+[node name="obstacleSpawner3" parent="." unique_id=981268627 instance=ExtResource("4_bw6k5")]
+position = Vector2(1923, -7)
+
+[node name="obstacleSpawner4" parent="." unique_id=1770780106 instance=ExtResource("4_bw6k5")]
+position = Vector2(-9, 1086)
+
+[node name="bigEnemy" parent="." unique_id=1858363393 instance=ExtResource("5_y3j0m")]
+position = Vector2(1216, 273)
+
+[node name="ui" parent="." unique_id=333148490 instance=ExtResource("6_rurhu")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_direction = 4
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="levelLimits" type="Node2D" parent="." unique_id=1100878603]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="levelLimits" unique_id=1611621749]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelLimits/StaticBody2D" unique_id=492728161]
+position = Vector2(960, 2)
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_rurhu")
+one_way_collision = true
+one_way_collision_margin = 50.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="levelLimits" unique_id=1353588050]
+position = Vector2(0, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelLimits/StaticBody2D2" unique_id=796801597]
+position = Vector2(960, 2)
+shape = SubResource("RectangleShape2D_rurhu")
+one_way_collision = true
+one_way_collision_margin = 50.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="levelLimits" unique_id=235072068]
+position = Vector2(0, 519)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelLimits/StaticBody2D3" unique_id=1515661758]
+rotation = 1.5707964
+scale = Vector2(0.595, 1)
+shape = SubResource("RectangleShape2D_rurhu")
+one_way_collision = true
+one_way_collision_margin = 50.0
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="levelLimits" unique_id=1572672014]
+position = Vector2(1920, 516)
+rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelLimits/StaticBody2D4" unique_id=620766353]
+rotation = 1.5707964
+scale = Vector2(0.595, 1)
+shape = SubResource("RectangleShape2D_rurhu")
+one_way_collision = true
+one_way_collision_margin = 50.0

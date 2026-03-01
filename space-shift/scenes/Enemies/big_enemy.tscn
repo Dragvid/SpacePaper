@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cj2ihku8bay7f"]
+
+[ext_resource type="Script" uid="uid://bskua1n4powua" path="res://scripts/followingEnemy.gd" id="1_o1j0d"]
+[ext_resource type="Texture2D" uid="uid://ywvohv7lwgjd" path="res://assets/big enemy-no_bkg.png" id="2_o1j0d"]
+[ext_resource type="PackedScene" uid="uid://c0nr54hxvi5i1" path="res://scenes/pickups/cup_pickup.tscn" id="2_q5ubf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycayy"]
+radius = 120.067
+
+[node name="bigEnemy" type="CharacterBody2D" unique_id=1842858618 groups=["Enemy"]]
+script = ExtResource("1_o1j0d")
+scoreOnDeath = 50
+speedX = 60.0
+speedY = 30.0
+atkDamage = -10
+healthTotal = 50
+drop_item = ExtResource("2_q5ubf")
+drop_chance_percentage = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1633069209]
+position = Vector2(11, -1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_o1j0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=798162979]
+shape = SubResource("CircleShape2D_ycayy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=306230624]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=152598973]
+shape = SubResource("CircleShape2D_ycayy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

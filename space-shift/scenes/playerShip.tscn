@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://btsg1etftxdq0"]
+
+[ext_resource type="Script" uid="uid://cx0gk8cnl1rcc" path="res://scripts/player_ship.gd" id="1_nqx6x"]
+[ext_resource type="PackedScene" uid="uid://dxlywdx1w1d6f" path="res://scenes/projectiles/laserProjectile.tscn" id="2_dbw2a"]
+[ext_resource type="PackedScene" uid="uid://c6t01pr4nfxbj" path="res://scenes/projectiles/rocketProjectile.tscn" id="3_o7q0d"]
+[ext_resource type="PackedScene" uid="uid://ddimpfrt4pty8" path="res://scenes/projectiles/force_field.tscn" id="3_ymwsx"]
+[ext_resource type="Texture2D" uid="uid://dyk1csiwyera6" path="res://assets/player ship - cut no bg.png" id="4_dbw2a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycayy"]
+radius = 62.0
+
+[node name="player" type="CharacterBody2D" unique_id=941223496]
+z_index = 1
+script = ExtResource("1_nqx6x")
+speed = 700
+healthTotal = 100
+regenerateAmmount = 5
+regenerateInterval = 2.0
+laserScene = ExtResource("2_dbw2a")
+rocketScene = ExtResource("3_o7q0d")
+forceFieldScene = ExtResource("3_ymwsx")
+
+[node name="player_ship" type="Sprite2D" parent="." unique_id=1775790745]
+position = Vector2(13, -4)
+rotation = 1.5708
+scale = Vector2(0.178, 0.178)
+texture = ExtResource("4_dbw2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012684585]
+visible = false
+shape = SubResource("CircleShape2D_ycayy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1822477756]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=825832546]
+shape = SubResource("CircleShape2D_ycayy")
+
+[node name="healTimer" type="Timer" parent="." unique_id=1227819307]
+
+[node name="shootTimer" type="Timer" parent="." unique_id=1367904886]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="healTimer" to="." method="_on_heal_timer_timeout"]
+[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]
