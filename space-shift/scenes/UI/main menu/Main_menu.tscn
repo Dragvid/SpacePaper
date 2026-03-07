@@ -70,6 +70,7 @@ alignment = 1
 [node name="play_Button" type="Button" parent="main_options" unique_id=1365912077]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 30
 text = "Start"
@@ -77,6 +78,8 @@ text = "Start"
 [node name="options_button" type="Button" parent="main_options" unique_id=296091743]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 30
 text = "Options"
@@ -84,6 +87,8 @@ text = "Options"
 [node name="rules_button" type="Button" parent="main_options" unique_id=123888769]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 30
 text = "Game rules
@@ -92,6 +97,8 @@ text = "Game rules
 [node name="quit_button" type="Button" parent="main_options" unique_id=1563185875]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
@@ -359,6 +366,7 @@ André Loureiro/Kami - Music"
 [connection signal="button_up" from="main_options/rules_button" to="." method="_on_rules_button_button_up"]
 [connection signal="button_up" from="main_options/quit_button" to="." method="_on_quit_button_button_up"]
 [connection signal="button_down" from="game_rules_display/Button" to="." method="_on_button_button_down"]
+[connection signal="visibility_changed" from="options/HBoxContainer/pause_main" to="options" method="_on_pause_main_visibility_changed"]
 [connection signal="button_up" from="options/HBoxContainer/pause_main/volumeBtn" to="options" method="_on_volume_btn_button_up"]
 [connection signal="button_up" from="options/HBoxContainer/pause_main/changeKeybindsBtn" to="options" method="_on_change_keybinds_btn_button_up"]
 [connection signal="value_changed" from="options/HBoxContainer/optionsTab/soundSliders/sfx/sfxHSlider" to="options/HBoxContainer/optionsTab/soundSliders" method="_on_sfx_h_slider_value_changed"]

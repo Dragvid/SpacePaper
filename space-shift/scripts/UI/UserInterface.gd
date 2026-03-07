@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 
 func update_display_life_values():
 	if AppInfo.playerNode!=null:
-		life_label.text = str(AppInfo.playerNode.healthTotal,"/",AppInfo.playerNode.currentHealth)
+		life_label.text = str(AppInfo.playerNode.currentHealth,"/",AppInfo.playerNode.healthTotal)
 	else:
 		game_over()
 		life_label.text="Lost"
@@ -81,12 +81,15 @@ func _on_back_to_menu_btn_button_up() -> void:
 func _on_change_keybinds_btn_button_up() -> void:
 	tab_hopping("keybindUpdate")
 
-
 func _on_volume_btn_button_up() -> void:
 	tab_hopping("soundSliders")
-
 
 func _on_back_to_main_menu_btn_button_up() -> void:
 	gamePaused = false
 	get_tree().paused = false 
 	get_tree().change_scene_to_file("res://scenes/UI/main menu/Main_menu.tscn")
+
+
+func _on_pause_menu_visibility_changed() -> void:
+	if pause_menu.visible:
+		$pauseMenu/HBoxContainer/pause_main/continueBtn.grab_focus()

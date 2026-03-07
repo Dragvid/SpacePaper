@@ -302,6 +302,7 @@ alignment = 1
 visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Back"
@@ -309,6 +310,7 @@ text = "Back"
 [node name="continueBtn" type="Button" parent="pauseMenu/HBoxContainer/pause_main" unique_id=1399094498]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Continue "
@@ -316,6 +318,7 @@ text = "Continue "
 [node name="volumeBtn" type="Button" parent="pauseMenu/HBoxContainer/pause_main" unique_id=637920901]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Volume"
@@ -323,6 +326,7 @@ text = "Volume"
 [node name="changeKeybindsBtn" type="Button" parent="pauseMenu/HBoxContainer/pause_main" unique_id=6702539]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Update  keybinds"
@@ -330,6 +334,7 @@ text = "Update  keybinds"
 [node name="backToMainMenuBtn" type="Button" parent="pauseMenu/HBoxContainer/pause_main" unique_id=1274769302]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Main menu"
@@ -337,6 +342,7 @@ text = "Main menu"
 [node name="exitGameBtn" type="Button" parent="pauseMenu/HBoxContainer/pause_main" unique_id=1424421341]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Exit Game
@@ -528,6 +534,7 @@ size_flags_vertical = 6
 [connection signal="button_up" from="gameOverScreen/button_container/playAgainBtn" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="gameOverScreen/button_container/backToMainMenuBtn" to="." method="_on_back_to_main_menu_btn_button_up"]
 [connection signal="button_up" from="gameOverScreen/button_container/exitGameBtn" to="." method="_on_exit_game_btn_button_up"]
+[connection signal="visibility_changed" from="pauseMenu" to="." method="_on_pause_menu_visibility_changed"]
 [connection signal="button_up" from="pauseMenu/HBoxContainer/pause_main/backToMenuBtn" to="." method="_on_back_to_menu_btn_button_up"]
 [connection signal="button_up" from="pauseMenu/HBoxContainer/pause_main/continueBtn" to="." method="_on_continue_btn_button_up"]
 [connection signal="button_up" from="pauseMenu/HBoxContainer/pause_main/volumeBtn" to="." method="_on_volume_btn_button_up"]

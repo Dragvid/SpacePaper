@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func set_info(action_name, action_keybind):
 	target_action = action_name
-	action_name_label.text = action_name
+	action_name_label.text = format_action_name_pretty(action_name)
 	action_key_button.text = action_keybind
 
 var waiting_for_input := false
@@ -17,6 +17,7 @@ var action_to_rebind := ""
 
 func rebind_action(action_name: String) -> void:
 	action_to_rebind = action_name
+	await get_tree().create_timer(0.2).timeout
 	waiting_for_input = true
 	action_key_button.text = "..."
 	#print("Press a key to rebind:", action_name)
@@ -42,6 +43,14 @@ func _unhandled_input(event: InputEvent) -> void:
 				action_to_rebind,
 				event.as_text()
 			)
+
+func format_action_name_pretty(action_name: String) -> String:
+	var words = action_name.split("_")
+	var final_name:String
+	for i in words.size():
+		if words[i] != "game":
+			final_name = str(final_name," ",words[i].capitalize())
+	return final_name
 
 func _on_action_key_button_button_up() -> void:
 	rebind_action(target_action)

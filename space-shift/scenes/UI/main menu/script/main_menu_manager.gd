@@ -10,10 +10,14 @@ static var game_scene = "res://scenes/game_scene.tscn"
 
 #@export var rules_text : String 
 
-#func _ready() -> void:
+func _ready() -> void:
+	grab_main_focus()
 	#AudioManager.emit_signal("play_sound","test_ost","ost",true)
 	#pass
 	#rules_label.text = str(rules_text %)
+
+func grab_main_focus():
+	main_options.get_child(0).grab_focus()
 
 func _on_play_button_button_up() -> void:
 	get_tree().change_scene_to_file(game_scene)

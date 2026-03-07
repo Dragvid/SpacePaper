@@ -10,7 +10,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	load_game()
 	keybind_changed.connect(save_keybind)
-	print(ProjectSettings.globalize_path(SAVE_PATH))
+	#print(ProjectSettings.globalize_path(SAVE_PATH))
 
 #func _write_save(new_data: Dictionary) -> void:
 	##print("new data ",new_data)
