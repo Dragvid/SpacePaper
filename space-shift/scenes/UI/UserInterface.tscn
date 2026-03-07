@@ -193,6 +193,7 @@ offset_left = -250.0
 offset_right = 250.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Play again"
@@ -210,6 +211,7 @@ offset_right = 250.0
 offset_bottom = 34.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Main menu"
@@ -227,6 +229,7 @@ offset_right = 250.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("2_vr1b1")
 theme_override_font_sizes/font_size = 20
 text = "Exit Game
@@ -353,6 +356,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="soundSliders" type="VBoxContainer" parent="pauseMenu/HBoxContainer/optionsTab" unique_id=1355580414]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -531,6 +535,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
+[connection signal="visibility_changed" from="gameOverScreen" to="." method="_on_game_over_screen_visibility_changed"]
 [connection signal="button_up" from="gameOverScreen/button_container/playAgainBtn" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="gameOverScreen/button_container/backToMainMenuBtn" to="." method="_on_back_to_main_menu_btn_button_up"]
 [connection signal="button_up" from="gameOverScreen/button_container/exitGameBtn" to="." method="_on_exit_game_btn_button_up"]

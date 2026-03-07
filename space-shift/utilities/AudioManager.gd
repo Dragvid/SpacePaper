@@ -18,7 +18,7 @@ static var sfx_array = [
 	{"name":"cup_pickup","file_path":"res://sound/sfx/cup pickup.wav"}
 	]
 static var ost_array =[
-	{"name":"test_ost","file_path":"res://sound/ost/Feather_Bed.mp3"}
+	{"name":"ost1","file_path":"res://sound/ost/JessiePinkman-loop120bpm.mp3"}
 	]
 func _ready() -> void:
 	volume_changed.connect(_on_volume_changed)
@@ -56,9 +56,10 @@ func pick_and_play_right_sound(sound_name:String,sound_type:String, loop:bool = 
 	var sound_node_name = str(sound_type,"_",sound_name)
 	match sound_type:
 		"ost":
-			right_sound_array = ost_array
 			if get_node_or_null(sound_node_name) != null:
 				return
+			right_sound_array = ost_array
+			print("ost play request")
 		"sfx":
 			right_sound_array = sfx_array
 	for sound in right_sound_array:
@@ -76,6 +77,7 @@ func on_play_sound(sound_path: String, bus_name:String, loop:bool, node_name:Str
 		player.name = node_name
 		if loop:
 			if audio_stream is AudioStreamWAV:
+				print("loop sound")
 				audio_stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 			elif audio_stream is AudioStreamOggVorbis:
 				audio_stream.loop = true

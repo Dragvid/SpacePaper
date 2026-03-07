@@ -37,7 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		waiting_for_input = false
 		action_key_button.text = event.as_text()
-		print("Rebound", action_to_rebind, "to", event.as_text())
+		#print("Rebound", action_to_rebind, "to", event.as_text())
 		SaveSystem.emit_signal(
 				"keybind_changed",
 				action_to_rebind,

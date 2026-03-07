@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bskua1n4powua" path="res://scripts/followingEnemy.gd" id="1_uf8pn"]
 [ext_resource type="PackedScene" uid="uid://c0nr54hxvi5i1" path="res://scenes/pickups/cup_pickup.tscn" id="2_bwa3g"]
-[ext_resource type="Texture2D" uid="uid://bu865x1w8ykqg" path="res://assets/enemy-no_bkg.png" id="2_uf8pn"]
+[ext_resource type="Texture2D" uid="uid://bu865x1w8ykqg" path="res://assets/enemies/enemy-no_bkg.png" id="2_uf8pn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycayy"]
 radius = 62.2013

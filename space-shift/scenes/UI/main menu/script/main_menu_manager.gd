@@ -12,7 +12,7 @@ static var game_scene = "res://scenes/game_scene.tscn"
 
 func _ready() -> void:
 	grab_main_focus()
-	#AudioManager.emit_signal("play_sound","test_ost","ost",true)
+	AudioManager.emit_signal("play_sound","ost1","ost",true)
 	#pass
 	#rules_label.text = str(rules_text %)
 

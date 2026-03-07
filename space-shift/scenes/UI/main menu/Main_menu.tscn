@@ -209,6 +209,7 @@ alignment = 1
 [node name="volumeBtn" type="Button" parent="options/HBoxContainer/pause_main" unique_id=1370899715]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 20
 text = "Volume"
@@ -216,6 +217,7 @@ text = "Volume"
 [node name="changeKeybindsBtn" type="Button" parent="options/HBoxContainer/pause_main" unique_id=1150170754]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 20
 text = "Update  keybinds"
@@ -338,6 +340,7 @@ offset_left = 56.0
 offset_top = 48.0
 offset_right = 292.0
 offset_bottom = 137.0
+theme_override_colors/font_focus_color = Color(1, 1, 0.14509805, 1)
 theme_override_fonts/font = ExtResource("3_u4pvv")
 theme_override_font_sizes/font_size = 32
 text = "Back"

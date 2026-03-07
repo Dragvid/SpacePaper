@@ -77,6 +77,7 @@ func _on_continue_btn_button_up() -> void:
 
 func _on_back_to_menu_btn_button_up() -> void:
 	tab_hopping("main")
+	$pauseMenu/HBoxContainer/pause_main/continueBtn.grab_focus()
 
 func _on_change_keybinds_btn_button_up() -> void:
 	tab_hopping("keybindUpdate")
@@ -89,7 +90,10 @@ func _on_back_to_main_menu_btn_button_up() -> void:
 	get_tree().paused = false 
 	get_tree().change_scene_to_file("res://scenes/UI/main menu/Main_menu.tscn")
 
-
 func _on_pause_menu_visibility_changed() -> void:
 	if pause_menu.visible:
 		$pauseMenu/HBoxContainer/pause_main/continueBtn.grab_focus()
+
+func _on_game_over_screen_visibility_changed() -> void:
+	if game_over_screen.visible:
+		$gameOverScreen/button_container/playAgainBtn.grab_focus()

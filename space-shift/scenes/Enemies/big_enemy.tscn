@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cj2ihku8bay7f"]
 
 [ext_resource type="Script" uid="uid://bskua1n4powua" path="res://scripts/followingEnemy.gd" id="1_o1j0d"]
-[ext_resource type="Texture2D" uid="uid://ywvohv7lwgjd" path="res://assets/big enemy-no_bkg.png" id="2_o1j0d"]
+[ext_resource type="Texture2D" uid="uid://ywvohv7lwgjd" path="res://assets/enemies/big enemy-no_bkg.png" id="2_o1j0d"]
 [ext_resource type="PackedScene" uid="uid://c0nr54hxvi5i1" path="res://scenes/pickups/cup_pickup.tscn" id="2_q5ubf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycayy"]
